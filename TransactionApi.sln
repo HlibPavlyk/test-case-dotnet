@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6D1635BF-DC13-446D-BE8B-4430833C884A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{318509D0-33BB-45B4-A8ED-876A05678B61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransactionApi.Web", "src\TransactionApi.Web\TransactionApi.Web.csproj", "{3BFA3560-B361-4DB6-90CA-36B9234C8DBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BFA3560-B361-4DB6-90CA-36B9234C8DBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BFA3560-B361-4DB6-90CA-36B9234C8DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BFA3560-B361-4DB6-90CA-36B9234C8DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BFA3560-B361-4DB6-90CA-36B9234C8DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
