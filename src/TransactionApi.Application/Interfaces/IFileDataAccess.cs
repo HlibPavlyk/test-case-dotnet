@@ -1,5 +1,5 @@
-﻿using System.Transactions;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
+using TransactionApi.Domain.Entities;
 
 namespace TransactionApi.Application.Interfaces;
 

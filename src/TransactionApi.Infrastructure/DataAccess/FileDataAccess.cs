@@ -1,9 +1,9 @@
 ﻿using System.Globalization;
-using System.Transactions;
 using CsvHelper;
 using CsvHelper.Configuration;
 using Microsoft.AspNetCore.Http;
 using TransactionApi.Application.Interfaces;
+using TransactionApi.Domain.Entities;
 using TransactionApi.Infrastructure.DataMapper;
 
 namespace TransactionApi.Infrastructure.DataAccess;
