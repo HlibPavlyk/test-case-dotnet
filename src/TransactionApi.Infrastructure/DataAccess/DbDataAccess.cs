@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using TransactionApi.Application.Abstractions;
+using TransactionApi.Application.Dtos;
 using TransactionApi.Domain.Entities;
 
 namespace TransactionApi.Infrastructure.DataAccess;
@@ -27,5 +28,15 @@ public class DbDataAccess : IDbDataAccess
                 VALUES (@TransactionId, @Name, @Email, @Amount, @TransactionDate, @ClientLocation);";
 
         await _connection.ExecuteAsync(query, transaction);
+    }
+
+    public async Task<IEnumerable<TransactionExcelGetDto>> GetExcelTransactionsAsync()
+    {
+
+        var query = @"
+            SELECT TransactionId, Email, Amount, TransactionDate
+            FROM Transactions;";
+
+       return await _connection.QueryAsync<TransactionExcelGetDto>(query);
     }
 }
