@@ -12,10 +12,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Transactions\Queries\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\TransactionApi.Domain\TransactionApi.Domain.csproj" />
     </ItemGroup>
 
