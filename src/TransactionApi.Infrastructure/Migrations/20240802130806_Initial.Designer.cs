@@ -12,7 +12,7 @@ using TransactionApi.Infrastructure.Context;
 namespace TransactionApi.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240801093939_Initial")]
+    [Migration("20240802130806_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
