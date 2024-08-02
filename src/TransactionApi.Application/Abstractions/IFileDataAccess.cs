@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using TransactionApi.Domain.Entities;
 
-namespace TransactionApi.Application.Interfaces;
+namespace TransactionApi.Application.Abstractions;
 
 public interface IFileDataAccess
 {

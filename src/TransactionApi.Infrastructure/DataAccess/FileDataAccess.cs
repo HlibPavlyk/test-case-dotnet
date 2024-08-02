@@ -2,7 +2,7 @@
 using CsvHelper;
 using CsvHelper.Configuration;
 using Microsoft.AspNetCore.Http;
-using TransactionApi.Application.Interfaces;
+using TransactionApi.Application.Abstractions;
 using TransactionApi.Domain.Entities;
 using TransactionApi.Infrastructure.DataMapper;
 

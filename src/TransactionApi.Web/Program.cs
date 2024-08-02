@@ -1,5 +1,7 @@
+using System.Data;
 using MediatR;
-using TransactionApi.Application.Interfaces;
+using Microsoft.Data.SqlClient;
+using TransactionApi.Application.Abstractions;
 using TransactionApi.Infrastructure.DataAccess;
 using TransactionApi.Infrastructure.Extensions;
 
@@ -16,10 +18,7 @@ builder
 
 builder.Services.AddMediatR(TransactionApi.Application.AssemblyReference.Assembly);
 
-builder.Services.AddDbConnection(builder.Configuration);
-
-builder.Services.AddTransient<IFileDataAccess, FileDataAccess>();
-
+builder.Services.AddDependencies(builder.Configuration);
 
 var app = builder.Build();
 
