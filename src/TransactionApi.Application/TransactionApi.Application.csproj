@@ -7,7 +7,16 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="MediatR" Version="11.1.0" />
       <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Transactions\Queries\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TransactionApi.Domain\TransactionApi.Domain.csproj" />
     </ItemGroup>
 
 </Project>
