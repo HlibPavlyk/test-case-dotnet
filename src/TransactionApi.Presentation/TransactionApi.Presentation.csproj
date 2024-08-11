@@ -15,4 +15,9 @@
       <ProjectReference Include="..\TransactionApi.Application\TransactionApi.Application.csproj" />
     </ItemGroup>
 
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <DocumentationFile>bin\Debug\net8.0\TransactionWeb.Presentation.xml</DocumentationFile>
+    </PropertyGroup>
+
 </Project>

@@ -22,4 +22,9 @@
       <ProjectReference Include="..\TransactionApi.Presentation\TransactionApi.Presentation.csproj" />
     </ItemGroup>
 
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <DocumentationFile>bin\Debug\netcoreapp3.1\TransactionApi.Web.xml</DocumentationFile>
+    </PropertyGroup>
+
 </Project>
