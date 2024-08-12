@@ -1,0 +1,31 @@
+﻿version: '3.8'
+
+services:
+  transaction-api:
+    container_name: transaction-api
+    image: transaction-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=1234
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/transactions.pfx
+    build:
+      context: .
+      dockerfile: src/TransactionApi.Web/Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    volumes:
+      - ~/.aspnet/https:/https:ro
+    depends_on:
+      - transaction-api-db
+
+  transaction-api-db:
+    container_name: transaction-api-db
+    image: "mcr.microsoft.com/mssql/server"
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=y
+      - SA_PASSWORD=ComplexPassword123!
