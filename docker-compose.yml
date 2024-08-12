@@ -9,7 +9,7 @@ services:
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
       - ASPNETCORE_Kestrel__Certificates__Default__Password=1234
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/transactions.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/cert.pfx
     build:
       context: .
       dockerfile: src/TransactionApi.Web/Dockerfile
