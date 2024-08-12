@@ -20,4 +20,11 @@ public static class DbConnectionExtensions
         service.AddTransient<SqlConnection>(sp =>
             new SqlConnection(configuration.GetConnectionString("DefaultConnection")));
     }
+    
+    public static void MigrateDatabase(this IServiceProvider serviceProvider)
+    {
+        using var scope = serviceProvider.CreateScope();
+        var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        db.Database.Migrate();
+    }
 }

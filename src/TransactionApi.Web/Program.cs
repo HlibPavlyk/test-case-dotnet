@@ -1,6 +1,6 @@
-using System.Reflection;
 using MediatR;
 using Microsoft.OpenApi.Models;
+using TransactionApi.Infrastructure.Context;
 using TransactionApi.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +10,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Transaction API", Version = "v1" });
 
-    var xmlFile = @"..\..\..\..\TransactionApi.Presentation\bin\Debug\net8.0\TransactionWeb.Presentation.xml";
+    var xmlFile = "TransactionWeb.Presentation.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     c.IncludeXmlComments(xmlPath);
 });
@@ -27,14 +27,13 @@ builder.Services.AddDependencies(builder.Configuration);
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+app.Services.MigrateDatabase();
+
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Transaction API V1");
-    });
-}
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Transaction API V1");
+});
 
 app.UseHttpsRedirection();
 app.MapControllers();
