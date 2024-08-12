@@ -1,6 +1,5 @@
 using MediatR;
 using Microsoft.OpenApi.Models;
-using TransactionApi.Infrastructure.Context;
 using TransactionApi.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,13 +26,17 @@ builder.Services.AddDependencies(builder.Configuration);
 
 var app = builder.Build();
 
-app.Services.MigrateDatabase();
 
-app.UseSwagger();
-app.UseSwaggerUI(c =>
+if (app.Environment.IsDevelopment())
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Transaction API V1");
-});
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Transaction API V1");
+        c.RoutePrefix = string.Empty;
+    });
+    app.MigrateDatabase();
+}
 
 app.UseHttpsRedirection();
 app.MapControllers();

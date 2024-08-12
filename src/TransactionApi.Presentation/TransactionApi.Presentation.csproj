@@ -17,7 +17,7 @@
 
     <PropertyGroup>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <DocumentationFile>bin\Debug\net8.0\TransactionWeb.Presentation.xml</DocumentationFile>
+        <DocumentationFile>..\TransactionApi.Web\bin\Debug\net8.0\TransactionWeb.Presentation.xml</DocumentationFile>
     </PropertyGroup>
 
 </Project>

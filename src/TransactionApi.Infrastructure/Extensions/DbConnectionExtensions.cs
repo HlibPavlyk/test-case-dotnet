@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,9 +22,9 @@ public static class DbConnectionExtensions
             new SqlConnection(configuration.GetConnectionString("DefaultConnection")));
     }
     
-    public static void MigrateDatabase(this IServiceProvider serviceProvider)
+    public static void MigrateDatabase(this IApplicationBuilder app)
     {
-        using var scope = serviceProvider.CreateScope();
+        using var scope = app.ApplicationServices.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
         db.Database.Migrate();
     }
